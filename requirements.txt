@@ -1,0 +1,8 @@
+Django>=5.0
+requests
+pandas
+numpy
+shapely
+geopy
+scikit-learn
+polyline

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Route Optimizer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fuel Route Optimizer</h1>
+            <p>Find the most cost-effective fuel stops for your road trip</p>
+            <div class="meta-info">
+                <span class="vehicle-spec">Vehicle: {{ range_miles }}-mile range | {{ mpg }} MPG</span>
+                <span class="apis-used">APIs Used: OSRM Routing &middot; Nominatim Geocoding &middot; Leaflet Maps</span>
+            </div>
+        </header>
+
+        <div class="search-panel">
+            <div class="form-group">
+                <label for="start-location">Start Location</label>
+                <input type="text" id="start-location" placeholder="e.g. Dallas, TX" />
+            </div>
+            <div class="form-group">
+                <label for="dest-location">Destination Location</label>
+                <input type="text" id="dest-location" placeholder="e.g. Los Angeles, CA" />
+            </div>
+            <button id="calculate-btn" onclick="calculateRoute()">Calculate Route</button>
+            <div id="error-msg" class="error-msg"></div>
+        </div>
+
+        <div id="loader" class="loader-overlay" style="display: none;">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Calculating optimal route...</p>
+        </div>
+
+        <div class="content">
+            <div id="map"></div>
+            <div class="summary-panel" id="summary-panel" style="display: none;">
+                <h2>Route Summary</h2>
+                <div class="summary-item">
+                    <span class="label">Distance:</span>
+                    <span class="value" id="summary-distance">-</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Fuel Required:</span>
+                    <span class="value" id="summary-fuel">-</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Total Fuel Cost:</span>
+                    <span class="value" id="summary-cost">-</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Fuel Stops:</span>
+                    <span class="value" id="summary-stops-count">-</span>
+                </div>
+                <div id="stops-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
