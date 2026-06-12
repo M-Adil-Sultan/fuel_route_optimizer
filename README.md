@@ -2,6 +2,12 @@
 
 A Django-based web application that calculates cost-optimized fuel stops for road trips across North America. Given a start and destination location, it computes the driving route via OSRM, then places fuel stops at regular intervals choosing the cheapest stations near the route. A fuel stop is always enforced near the start location, regardless of trip distance.
 
+
+<img width="1343" height="640" alt="image" src="https://github.com/user-attachments/assets/dd88e0a4-52b4-4ad7-bbce-257e6d66be86" />
+
+<img width="1343" height="644" alt="image" src="https://github.com/user-attachments/assets/956ae1f8-7f73-4cbf-a51e-fecf1c3bb118" />
+
+
 ## Features
 
 - **Route calculation** via OSRM (free, no API key required)
@@ -183,9 +189,4 @@ fuel_route_optimizer/
 
 - **OSRM** (`router.project-osrm.org`) — free driving route calculation, no API key required
 - **Nominatim** (`nominatim.openstreetmap.org`) — free geocoding, rate-limited (1 req/sec with 1.2s interval enforced)
-
-
-<img width="1343" height="640" alt="image" src="https://github.com/user-attachments/assets/dd88e0a4-52b4-4ad7-bbce-257e6d66be86" />
-
-<img width="1343" height="644" alt="image" src="https://github.com/user-attachments/assets/956ae1f8-7f73-4cbf-a51e-fecf1c3bb118" />
 
